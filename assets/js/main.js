@@ -140,6 +140,6 @@ window.addEventListener("contextmenu", (ev) => {
 });
 
 window.addEventListener("beforeunload", (ev) => {
-    ev.preventDefault(); 
+    ev.preventDefault();
     ev.returnValue = '';
 });
