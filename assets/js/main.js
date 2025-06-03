@@ -102,12 +102,12 @@ interaction.addEventListener("wheel", (ev) => {
 
     if (ev.wheelDeltaY > 0) {
         scrollUp.textContent = ++totalScrollUp;
-        document.getElementById('wheel-up').classList.add('visited');
-        document.getElementById('wheel-up').classList.add('active');
-    } else if (ev.wheelDeltaY < 0) {
-        scrollDown.textContent = ++totalScrollDown;
         document.getElementById('wheel-down').classList.add('visited');
         document.getElementById('wheel-down').classList.add('active');
+    } else if (ev.wheelDeltaY < 0) {
+        scrollDown.textContent = ++totalScrollDown;
+        document.getElementById('wheel-up').classList.add('visited');
+        document.getElementById('wheel-up').classList.add('active');
     }
 
     if (!wheelEvent) {
@@ -137,4 +137,9 @@ window.addEventListener("contextmenu", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
     return false;
+});
+
+window.addEventListener("beforeunload", (ev) => {
+    ev.preventDefault(); 
+    ev.returnValue = '';
 });
