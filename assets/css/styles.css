@@ -34,6 +34,29 @@ body {
     max-width: 400px;
 }
 
+.info {
+    width: 400px;
+}
+
+.info a {
+    color: red;
+}
+
+.ad {
+    display: flex;
+    justify-content: center;       /* 居中 */
+    align-items: flex-start;    /* 底部对齐 */
+    flex-wrap: wrap;
+}
+
+.ad .tb {
+    width: 400px;
+}
+
+.ad .xy {
+    width: 300px;
+}
+
 #mouse .visited {
     fill: #cae1ff !important;
 }
@@ -57,8 +80,17 @@ th {
     border: 1px #ccc solid;
 }
 
-#interaction {
+.ad {
     flex-grow: 1;
+}
+
+.ad h3 {
+    font-size: 20px;
+}
+
+.ad h4 {
+    font-size: 20px;
+    color: red;
 }
 
 .warning {
