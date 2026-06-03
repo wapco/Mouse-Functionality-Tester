@@ -1,19 +1,26 @@
 html,
 body {
     height: 100%;
+    overscroll-behavior: none;
 }
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     border: 0;
     display: flex;
     flex-direction: column;
     font-size: 1.1rem;
-    background-color: rgb(40, 40, 40);
-    color: white;
+    background-color: #ffffff;
+    color: #333333;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    overscroll-behavior: none;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 #header {
@@ -29,9 +36,9 @@ body {
 }
 
 #mouse {
-    width: 100%;
-    height: 100%;
-    max-width: 400px;
+    width: min(80vw, 400px);
+    height: auto;
+    margin-top: 25px;
 }
 
 .info {
@@ -44,9 +51,17 @@ body {
 
 .ad {
     display: flex;
-    justify-content: center;       /* 居中 */
-    align-items: flex-start;    /* 底部对齐 */
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    gap: 16px;
+}
+
+.ad h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 20px;
 }
 
 .ad .tb {
@@ -66,26 +81,75 @@ body {
 }
 
 table {
-    padding: 0.5rem 1rem;
+    margin: 0 0 12px 0;
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+thead th {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #374151;
+    font-weight: 700;
+    padding: 6px;
+    border-bottom: 1px solid #d1d5db;
+    border-right: 1px solid #e5e7eb;
+    background-color: #f3f4f6;
+    white-space: nowrap;
+}
+
+thead th:first-child {
+    padding-left: 10px;
+}
+
+thead th:last-child {
+    border-right: none;
 }
 
 tbody th {
     text-align: center;
+    padding: 6px 4px;
+    min-width: 80px;
+    background-color: #ffffff;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+    border-right: 1px solid #f3f4f6;
 }
 
-td,
-th {
+td {
     text-align: center;
-    border: 1px #ccc solid;
+    padding: 6px 8px;
+    background-color: #ffffff;
+    color: #111827;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-bottom: 1px solid #f3f4f6;
+    border-right: 1px solid #f3f4f6;
+    vertical-align: middle;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tbody tr:hover td {
+    background-color: #f8fafc;
+}
+
+table:last-of-type {
+    max-width: 100%;
 }
 
 .ad {
     flex-grow: 1;
-}
-
-.ad h3 {
-    font-size: 20px;
 }
 
 .ad h4 {
@@ -95,4 +159,45 @@ th {
 
 .warning {
     background-color: red;
+}
+
+.ad-container {
+    padding: 1rem;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.nav-item {
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: #374151;
+}
+
+.nav-item.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+#ad-page {
+    display: none;
 }
